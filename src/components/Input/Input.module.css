@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding-top: 4rem;
+    width: 100%;
+}
+
+.input {
+    background-color: transparent;
+    border: 1px solid hsl(240, 6%, 48%);
+    border-radius: 0.32rem;
+    color: hsl(240, 33%, 90%);
+    font-size: 2rem;
+    height: 3rem;
+    padding: 1rem;
+    text-align: center;
+    width: 3rem;
+}
+
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        gap: 2rem;
+        max-width: 1400px;
+    }
+    
+    .input {
+        font-size: 3rem;
+        height: 7rem;
+        width: 7rem;
+    }
+    
+    .input:focus {
+        outline: 1px solid hsl(240, 6%, 54%);
+    }
+}
