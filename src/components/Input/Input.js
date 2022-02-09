@@ -20,11 +20,9 @@ const Input = (props) => {
         if ( !( 
             (e.which >= 48 && e.which <= 57)
                 || (e.which >= 96 && e.which <= 105) 
-                || e.which === 8 
-                || e.which === 9
+                || (e.which === 8 || e.which === 9)
                 || (e.which >= 37 && e.which <= 40)
-                || e.which === 46
-                || e.which === 116
+                || (e.which === 46 || e.which === 116)
         )) { e.preventDefault() };
     };
 
@@ -58,6 +56,9 @@ const Input = (props) => {
                 const result = evaluateUserInput(numbers,target);
                 const newResults = [...results]
                 newResults.push(result);
+                document.querySelectorAll("[name^='input']").forEach(x => x.value = '');
+                const nextField = document.querySelector("input[name=input-1]");
+                nextField.focus();
                 setResults(newResults);
             }
         }

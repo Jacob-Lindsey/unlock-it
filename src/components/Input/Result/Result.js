@@ -15,7 +15,42 @@ const Result = () => {
                 results={results}
                 setResults={setResults}
                 target={target.current}
-            />   
+            />
+            <div className={styles.resultsWrapper}>
+                {results ? 
+                    results.map((result) => (
+                        <div className={styles.resultItem}>
+                            <div className={styles.resultNumbers}>
+                                {result.map((val,idx) =>
+                                    <span 
+                                        key={idx}
+                                        className={styles.number}
+                                    >
+                                        {val[1]}
+                                    </span>
+                                )}
+                            </div>
+                            <div className={styles.resultLights}>
+                                {result.map((val,idx) =>
+                                    <span 
+                                        key={idx}
+                                        className={
+                                            val[0] === 1 ? 
+                                            styles.green :
+                                            val[0] === 0 ?
+                                            styles.yellow :
+                                            styles.red
+                                        }
+                                    >
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    ))
+                    :
+                    <div>Nothing here yet...</div>
+                }
+            </div>
             
         </span>
     )
