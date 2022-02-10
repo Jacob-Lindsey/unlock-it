@@ -9,7 +9,7 @@
 }
 
 .input {
-    background-color: transparent;
+    background-color: hsla(270, 5%, 7%, 0.192);
     border: 1px solid hsl(240, 6%, 48%);
     border-radius: 0.32rem;
     color: hsl(240, 33%, 90%);

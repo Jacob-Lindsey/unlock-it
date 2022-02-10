@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { generateTargetNumber } from "../../utils/generateTargetNumber";
 import { evaluateUserInput } from "../../utils/evaluateUserInput";
 import styles from "./Input.module.css";
 
@@ -7,7 +8,42 @@ const Input = (props) => {
     const [numbers, setNumbers] = useState([null,null,null,null,null,null,null,null]);
     const results = props.results;
     const setResults = props.setResults;
-    const target = props.target;
+    let target = props.target;
+    const lockAnim = props.lockAnim;
+    const setLockAnim = props.setLockAnim;
+    const lockRef = props.lockRef;
+
+    const wiggle = new KeyframeEffect(
+        lockRef.current,
+        [
+            { transform: 'rotate(0)' },
+            { transform: 'rotate(-5deg)', offset: 0.05 },
+            { transform: 'rotate(5deg)', offset: 0.1 },
+            { transform: 'rotate(-5deg)', offset: 0.15 },
+            { transform: 'rotate(5deg)', offset: 0.2 },
+            { transform: 'rotate(-5deg)', offset: 0.25 },
+            { transform: 'rotate(5deg)', offset: 0.3 },
+            { transform: 'rotate(-5deg)', offset: 0.35 },
+            { transform: 'rotate(5deg)', offset: 0.4 },
+            { transform: 'rotate(-5deg)', offset: 0.45 },
+            { transform: 'rotate(5deg)', offset: 0.5 },
+            { transform: 'rotate(-5deg)', offset: 0.55 },
+            { transform: 'rotate(5deg)', offset: 0.6 },
+            { transform: 'rotate(-5deg)', offset: 0.65 },
+            { transform: 'rotate(5deg)', offset: 0.7 },
+            { transform: 'rotate(-5deg)', offset: 0.75 },
+            { transform: 'rotate(5deg)', offset: 0.8 },
+            { transform: 'rotate(-5deg)', offset: 0.85 },
+            { transform: 'rotate(5deg)', offset: 0.9 },
+            { transform: 'rotate(-5deg)', offset: 0.95 },
+            { transform: 'rotate(0)' }
+        ],
+        
+        { duration: 750, direction: "alternate", easing: "linear" }
+    );
+
+    const wiggleAnim = new Animation(wiggle, document.timeline);
+
 
     useEffect(() => {
         window.addEventListener('keydown', handleSubmit);
@@ -53,7 +89,15 @@ const Input = (props) => {
     const handleSubmit = (e) => {
         if (e.which === 13) {
             if (!numbers.includes(null)) {
-                const result = evaluateUserInput(numbers,target);
+                const guessResult = evaluateUserInput(numbers,target);
+                const [animStatus, result] = [guessResult[0], guessResult[1]];
+                if (animStatus === 1) {
+                    target = generateTargetNumber(8);
+                    setLockAnim('correct');
+                } else {
+                    wiggleAnim.play(); 
+                    setLockAnim('incorrect');
+                }
                 const newResults = [...results]
                 newResults.push(result);
                 document.querySelectorAll("[name^='input']").forEach(x => x.value = '');
