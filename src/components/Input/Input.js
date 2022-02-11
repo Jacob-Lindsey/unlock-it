@@ -9,7 +9,6 @@ const Input = (props) => {
     const results = props.results;
     const setResults = props.setResults;
     let target = props.target;
-    const lockAnim = props.lockAnim;
     const setLockAnim = props.setLockAnim;
     const lockRef = props.lockRef;
 

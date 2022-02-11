@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Input from "../Input";
+import LockIcon from "../../LockIcon/LockIcon";
 import { generateTargetNumber } from "../../../utils/generateTargetNumber";
 import styles from "./Result.module.css";
 
@@ -24,16 +25,14 @@ const Result = () => {
 
     return (
         <span className={styles.wrapper}>
-            <div className={styles.lockContainer}>
-                <div className={lockAnim === 'correct' ? styles.open : styles.lock} ref={lockRef}>
-                    <div className={styles.keyhole}></div>
-                </div>
-            </div>
+            <LockIcon 
+                lockAnim={lockAnim}
+                lockRef={lockRef}
+            />
             <Input
                 results={results}
                 setResults={setResults}
                 target={target}
-                lockAnim={lockAnim}
                 setLockAnim={setLockAnim}
                 lockRef={lockRef}
             />

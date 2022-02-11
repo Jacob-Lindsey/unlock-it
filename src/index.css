@@ -22,6 +22,10 @@ ol[role='list'] {
   list-style: none;
 }
 
+#root {
+  height: 100vh;
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }
