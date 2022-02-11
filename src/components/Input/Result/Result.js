@@ -38,7 +38,7 @@ const Result = () => {
             />
             <div className={styles.resultsWrapper}>
                 {results ? 
-                    results.map((result, resultsIndex) => (
+                    results.slice(0).reverse().map((result, resultsIndex) => (
                         <div className={styles.resultItem} key={resultsIndex}>
                             <div className={styles.resultNumbers}>
                                 {result.map((val,idx) =>
