@@ -111,6 +111,7 @@ const Input = (props) => {
         <div className={styles.wrapper}>
             <input className={styles.input}
                 autoFocus
+                type='tel'
                 maxLength="1"
                 name='input-1'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -119,6 +120,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-2'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -127,6 +129,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-3'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -135,6 +138,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-4'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -143,6 +147,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-5'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -151,6 +156,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-6'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -159,6 +165,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-7'
                 onKeyDown={(e) => handleKeyPress(e)}
@@ -167,6 +174,7 @@ const Input = (props) => {
                 required
             />
             <input className={styles.input}
+                type='tel'
                 maxLength="1"
                 name='input-8'
                 onKeyDown={(e) => handleKeyPress(e)}
